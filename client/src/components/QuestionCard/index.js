@@ -6,7 +6,7 @@ function QuestionCard(props) {
   return (
     <div className="card">
       <div className="img-container">
-      <h1 className="cardText">{props.question}</h1> 
+      <h1>{props.question}</h1> 
       </div>
     </div>
   );
