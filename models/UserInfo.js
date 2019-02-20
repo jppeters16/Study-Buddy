@@ -33,7 +33,7 @@ var UserSchema = new Schema ({
     ///ref/link to a user created set of questions
     questions: [{
         type: Schema.Types.ObjectId,
-        ref: "Questions"
+        ref: "Question"
     }]
 });
 

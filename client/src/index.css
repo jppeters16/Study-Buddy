@@ -7,15 +7,10 @@ body {
   
 }
 
-.container-fluid {
-  padding: 0;
-}
-
 .createIntro {
   text-align: center;
   font-family: 'Merriweather', serif;
-  margin-top: 50px;
-  margin-bottom: 40px;
+  margin-top: 25px;
   color: #40676E;
 }
 .col-cardsets {
@@ -39,18 +34,6 @@ body {
 /* .description {
   display: inline block;
 } */
-.addToSet {
-  font-size: 28px;
-  color: #76A8BC;
-  margin-top: 5px;
-  font-family: 'Fjalla One', sans-serif;
-  text-align: center;
-  text-shadow:
-		-1px -1px 0 #40676E,
-		1px -1px 0 #40676E,
-		-1px 1px 0 #40676E,
-		1px 1px 0 #40676E;
-}
 
 .headerTerm, .headerDefinition {
   font-size: 12px;
@@ -104,124 +87,7 @@ body {
 .sbDescription {
   width: 40%;
   float: right;
-  margin-right: 5%;
+  margin-right: 100px;
+  margin-top: 50px;
   margin-bottom: 200px;
-  margin-top: 2%;
-  font-weight: bold;
-  color: #40676E;
-}
-.exampleCard {
-  margin-left: 5%;
-  float: left;
-}
-.whyStudy {
-  font-size: 36px;
-  margin-bottom: 10px;
-  color: #76A8BC;
-  font-weight: bold !important;
-  border-bottom: solid;
-  padding-bottom: 7px;
-  width: 48%;
-  margin-left: 0;
-  letter-spacing: 2px;
-  text-shadow:
-		-1px -1px 0 #40676E,
-		1px -1px 0 #40676E,
-		-1px 1px 0 #40676E,
-		1px 1px 0 #40676E;
-}
-/* navbar */
-
-a { 
-  color: #40676E;
-  font-family: 'Merriweather', serif;
-}
-a:hover {
-  color: #40676E;
-  text-decoration: none;
-}
-
-/* login & logout button */
-.btn-primary {
-  background-color: #BFCAE0;
-  border-style: solid;
-  border-radius: 5px;
-  border-color: #40676E;
-  border-width: 1px;
-  color: #40676E;
-  font-family: 'PT Serif', serif;
-  font-weight: bold;
-  font-size: 16px;
-}
-.btn-primary:hover {
-  background-color: #40676E;
-  border-style: solid;
-  border-radius: 5px;
-  border-color: #40676E;
-  border-width: 1px;
-  color: #BFCAE0;
-  cursor: pointer;
-}
-
-.usernameInput, .passwordInput {
-  padding-left: 10px !important;
-  width: 120px;
-  margin-left: 10px;
-  font-family: 'PT Serif', serif;
-  border-style: solid;
-  border-radius: 5px;
-  border-color: #40676E;
-  border-width: 1px;
-}
-
-/* quiz card area */
-.img-container {
-  height: 500px !important;
-}
-.cardText {
-  padding: 10px;
-  font-size: 28px;
-  color:#40676E;
-}
-
-.answerInput {
-  border-style: solid;
-  font-family: 'PT Serif', serif;
-  border-style: solid;
-  border-radius: 5px;
-  border-color: #40676E;
-  border-width: 1px;
-  padding-left: 10px !important;
-  margin: 0 auto;
-  display: block;
-  width: 550px;
-  height: 40px;
-  font-size: 20px;
-}
-
-.scoreBoard {
-  border-style: solid;
-  border-radius: 5px;
-  border-color: #76A8BC;
-  background-color: #76A8BC;
-  color: #40676E;
-  border-width: 2px;
-  width: 550px;
-  margin: 0 auto;
-  margin-top: 10px;
-}
-
-.navbar {
-  font-family: 'Merriweather', serif !important;
-  font-size: 20px;
-}
-
-/* 404 Page */
-.page404 {
-  margin: 0 auto;
-  text-align: center;
-  font-family: 'Merriweather', serif !important;
-  font-size: 60px;
-  margin-top: 20%;
-  color: #40676E;
 }

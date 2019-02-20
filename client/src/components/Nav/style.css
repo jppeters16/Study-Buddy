@@ -1,9 +1,4 @@
 .navbar {
-  background-color: #76a8bc;
+    background-color: #76A8BC;
 }
 
-.loggedInUser {
-  color: #40676e;
-  font-family: "Merriweather", serif;
-  font-size: 18px;
-}
