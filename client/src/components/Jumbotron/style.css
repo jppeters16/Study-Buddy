@@ -1,0 +1,38 @@
+.jumbotron {
+    background-image: url("./img/knowledge-1052014.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    border-radius: 0 !important;
+    text-align: center;
+    height: 500px;
+    padding: 0;
+  }
+
+  .jumboTitle {
+    font-family: 'Pacifico', cursive !important;
+    font-size: 70px;
+    position: relative;
+    top: 30%;
+    padding: 5px;
+  }
+  .jumboSlogan {
+    font-family: 'Pacifico', cursive !important;
+    font-size: 30px;
+    position: relative;
+    top: 30%;
+    padding: 5px;
+    margin-top: 25px;
+  }
+
+  /* h3 {
+    font-family: 'Pacifico', cursive !important;
+    font-size: 30px;
+    position: relative;
+    top: 35%;
+    padding: 5px;
+    margin-top: 25px;
+  } */

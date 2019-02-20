@@ -1,0 +1,24 @@
+.btn-success {
+    margin: auto;
+    display:block;
+    margin-top: 10px;
+    background-color:  #BFCAE0 !important;
+    border-style: solid;
+    border-color: #40676E !important;
+    color: #40676E !important;
+}
+.btn-success:hover {
+    margin:0 auto;
+    display:block;
+    margin-top: 10px;
+    background-color: #40676E !important;
+    border-style: solid;
+    border-color: #40676E !important;
+    color: #BFCAE0 !important;
+}
+
+.btn-delete {
+    margin:0 auto;
+    display:block;
+    margin-top: 5px;
+}
