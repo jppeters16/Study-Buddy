@@ -8,7 +8,7 @@ function Nav() {
   return (
     <MyContext.Consumer>
       {value => {
-        const { currentUser, logIn, logOut } = value;
+        const { currentUser } = value;
         return currentUser ? (
           <nav className="navbar navbar-expand-lg d-flex flex-row-reverse">
             <LoginForm />

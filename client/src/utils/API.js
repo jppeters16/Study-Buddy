@@ -21,14 +21,15 @@ export default {
   },
 
   updateUserQuestion: function(id, userData) {
-    console.log(userData);
-    return axios.put("/api/userInfo" + id, userData);
+    console.log(id, userData);
+    return axios.put("/api/userInfo/" + id, userData);
   },
 
   // Gets all questions from Database
   getQuestions: function() {
     return axios.get("/api/questions");
   },
+
   // Gets the Question with the given id
   getQuestion: function(id) {
     return axios.get("/api/questions/" + id);

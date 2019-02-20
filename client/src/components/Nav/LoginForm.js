@@ -1,18 +1,24 @@
 import React, { Component } from "react";
 import { MyContext } from "../../MyContext";
+import { Input, FormBtn } from "../Form";
 import "./style.css";
-
 
 class LoginForm extends Component {
   constructor(props) {
     super(props);
 
-    this.userInput = React.createRef();
-    this.passwordInput = React.createRef();
-
-    this.state = {};
+    this.state = {
+      userName: "",
+      userPassword: ""
+    };
   }
 
+  handleInputChange = event => {
+    const {
+      target: { name, value }
+    } = event;
+    this.setState({ [name]: value, event: event });
+  };
 
   render() {
     return (
@@ -20,25 +26,45 @@ class LoginForm extends Component {
         {value => {
           const { currentUser, logIn, logOut } = value;
           return currentUser ? (
-            <span style={{paddingRight: "10px"}}>
+            <span style={{ paddingRight: "10px" }}>
               <span className="loggedInUser">Logged in as, {currentUser}</span>
-              <button className="btn-primary" onClick={logOut}>Log Out <i class="fas fa-sign-out-alt"></i></button>
+              <button className="btn" id="loginButton" onClick={logOut}>
+                Log Out <i class="fas fa-sign-out-alt" />
+              </button>
             </span>
           ) : (
-            <div>
-              <form style={{paddingRight: "10px"}}
-              >
-                <input className="usernameInput" style={{borderRadius:"5%"}} placeholder="Username" ref={this.userInput} />
-                <input className="passwordInput" style={{borderRadius:"5%"}} placeholder="Password" ref={this.passwordInput} />
-                <button
-                   className="btn-primary" 
-                  onClick={() => {
-                    logIn(this.userInput.current.value, this.passwordInput.current.value);
+            <div className="loginForm">
+              <form style={{ paddingRight: "10px" }}>
+                <input
+                  className="usernameInput"
+                  style={{borderRadius:"5%"}}
+                  value={this.state.userName}
+                  onChange={this.handleInputChange}
+                  name="userName"
+                  placeholder="Username"
+                />
+                <input
+                  className="passwordInput"
+                  style={{
+                    borderRadius:"5%"
                   }}
-                >
-                 Log In <i class="fas fa-arrow-alt-circle-right"></i>
-                </button>
+                  value={this.state.userPassword}
+                  onChange={this.handleInputChange}
+                  name="userPassword"
+                  placeholder="Password"
+                  type="password"
+                />
               </form>
+              <button
+                className="btn"
+                id="loginButton"
+                disabled={!this.state.userName || !this.state.userPassword}
+                onClick={() => {
+                  logIn(this.state.userName, this.state.userPassword);
+                }}
+              >
+                Log In <i class="fas fa-arrow-alt-circle-right" />
+              </button>
             </div>
           );
         }}

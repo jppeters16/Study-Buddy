@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { QuestionList, QuestionListItem } from "../components/QuestionList";
 import { Input, FormBtn } from "../components/Form";
-import { Provider, MyContext } from "../MyContext";
+import { MyContext } from "../MyContext";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import { Redirect } from "react-router";
 
 class Questions extends Component {
   constructor(props) {
@@ -15,23 +15,29 @@ class Questions extends Component {
     this.state = {
       allQuestions: [],
       question: "",
-      answer: ""
+      answer: "",
+      currentID: null
     };
   }
 
   componentDidMount() {
-    API.getQuestions()
-      .then(res => this.setState({ allQuestions: res.data }))
-      .then(() => console.log(this.state.allQuestions));
+    API.getUser(this.context.currentId)
+      .then(res => this.setState({ allQuestions: res.data.questions }))
+      .catch(err => console.log(err));
+    console.log(this.state.allQuestions);
   }
 
+  handleGetUserQuestions = () => {
+    API.getUser(this.context.currentId)
+      .then(res => this.setState({ allQuestions: res.data.questions }))
+      .catch(err => console.log(err));
+  };
+
   deleteQuestion = id => {
-    API.deleteQuestion(id)
-      .then(res =>
-        API.getQuestions().then(res =>
-          this.setState({ allQuestions: res.data })
-        )
-      )
+    API.deleteQuestion(id).then(res => console.log(res.data));
+
+    API.getUser(this.context.currentId)
+      .then(res => this.setState({ allQuestions: res.data.questions }))
       .catch(err => console.log(err));
   };
 
@@ -40,10 +46,32 @@ class Questions extends Component {
       target: { name, value }
     } = event;
     this.setState({ [name]: value, event: event });
-    console.log(event.target.value);
   };
 
   ///////////////////////////save question////////////////////////
+  // Below code currently broken. Kicks user back to homepage when they create a new study card
+  ////////////////////////////////////
+  // handleQuestion = currentId => {
+  //   const sendIt = {
+  //     question: this.state.question,
+  //     answer: this.state.answer
+  //   };
+
+  //   API.saveQuestion(sendIt)
+  //     .then(res =>
+  //       API.updateUserQuestion(currentId, {
+  //         $push: { questions: res.data._id }
+  //       })
+  //     )
+  //     .then(res => API.getUser(this.context.currentId))
+  //     .then(res =>
+  //       this.setState({
+  //         allQuestions: res.data.questions,
+  //         answer: "",
+  //         question: ""
+  //       })
+  //     );
+  // };
   handleQuestion = currentId => {
     console.log(currentId);
     const sendIt = {
@@ -62,16 +90,14 @@ class Questions extends Component {
       )
       .catch(err => console.log(err));
   };
-
   ////////////////////////save user//////////////////////////////added prevent default
-  saveUser = e => {
-    e.preventDefault();
+  saveUser = () => {
     console.log("started................");
     const sendIt = {
-      userName: "Roger",
+      userName: "Ron",
       password: "1234",
-      firstName: "Roger",
-      lastName: "Roger",
+      firstName: "Ron",
+      lastName: "Burgundy",
       saved: true,
       createDate: new Date(Date.now())
     };
@@ -90,9 +116,11 @@ class Questions extends Component {
             <MyContext.Consumer>
               {({ currentUser }) => (
                 <h1 className="createIntro">
-                  {currentUser
-                    ? `Welcome, ${currentUser}!`
-                    : "Please Log In!"}
+                  {currentUser ? (
+                    `Welcome, ${currentUser}!`
+                  ) : (
+                    <Redirect to="/" />
+                  )}
                 </h1>
               )}
             </MyContext.Consumer>
@@ -103,7 +131,7 @@ class Questions extends Component {
             auth ? (
               <Row>
                 <Col size="md-12">
-                <p className="addToSet">Add a new card to the set</p>
+                  <p className="addToSet">Add a new card to the set</p>
                   <form>
                     <Input
                       value={this.state.answer}
@@ -122,7 +150,7 @@ class Questions extends Component {
                       disabled={!this.state.question || !this.state.answer}
                       onClick={() => this.handleQuestion(currentId)}
                     >
-                      Submit <i class="fas fa-check-circle"></i>
+                      Submit <i class="fas fa-check-circle" />
                     </FormBtn>
                   </form>
                 </Col>
@@ -144,9 +172,8 @@ class Questions extends Component {
                     <h3 className="createIntro">No Questions Entered Yet!</h3>
                   )}
                 </Col>
-                <Footer></Footer>
+                <Footer />
               </Row>
-              
             ) : (
               <h2 />
             )
@@ -156,5 +183,5 @@ class Questions extends Component {
     );
   }
 }
-
+Questions.contextType = MyContext;
 export default Questions;
