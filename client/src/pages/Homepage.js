@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
 import { Col, Row, Container } from "../components/Grid";
-import { MyContext } from "../MyContext";
 import QuestionCard from "../components/QuestionCard";
 import Nav from "../components/Nav";
 import API from "../utils/API";
 import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
+
 
 class Homepage extends Component {
   constructor(props) {
@@ -46,6 +47,7 @@ class Homepage extends Component {
             <Jumbotron>
               <h1 className="jumboTitle">Study Buddy</h1>
               <h3 className="jumboSlogan">The Best Way To Learn!</h3>
+              <Link to="/register"><h3 className="registrationLink">Sign Up Now!</h3></Link>
             </Jumbotron>
             <span>
               <div className="quesWrap">

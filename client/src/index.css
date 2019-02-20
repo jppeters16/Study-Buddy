@@ -101,6 +101,25 @@ body {
 }
 
 /* landing page */
+.registrationLink {
+  position: relative;
+  top: 220px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  font-size: 20px;
+  width: 180px;
+  margin: 0 auto;
+  padding: 10px;
+  color: #BFCAE0;
+  background-color: #76A8BC;
+  letter-spacing: 1px;
+  text-shadow:
+		-1px -1px 0 #40676E,
+		1px -1px 0 #40676E,
+		-1px 1px 0 #40676E,
+		1px 1px 0 #40676E;
+}
 .sbDescription {
   width: 40%;
   float: right;
@@ -109,6 +128,9 @@ body {
   margin-top: 2%;
   font-weight: bold;
   color: #40676E;
+  /* letter-spacing: 1px; */
+  font-family: 'PT Serif', serif;
+  font-size: 16px;
 }
 .exampleCard {
   margin-left: 5%;
@@ -123,12 +145,6 @@ body {
   padding-bottom: 7px;
   width: 48%;
   margin-left: 0;
-  letter-spacing: 2px;
-  text-shadow:
-		-1px -1px 0 #40676E,
-		1px -1px 0 #40676E,
-		-1px 1px 0 #40676E,
-		1px 1px 0 #40676E;
 }
 /* navbar */
 
@@ -142,7 +158,7 @@ a:hover {
 }
 
 /* login & logout button */
-.btn-primary {
+#loginButton {
   background-color: #BFCAE0;
   border-style: solid;
   border-radius: 5px;
@@ -153,7 +169,27 @@ a:hover {
   font-weight: bold;
   font-size: 16px;
 }
-.btn-primary:hover {
+#loginButton:hover {
+  background-color: #40676E;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: #40676E;
+  border-width: 1px;
+  color: #BFCAE0;
+  cursor: pointer;
+}
+#btn-primary {
+  background-color: #BFCAE0 !important;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: #40676E !important;
+  border-width: 1px;
+  color: #40676E;
+  font-family: 'PT Serif', serif;
+  font-weight: bold;
+  font-size: 16px;
+}
+#btn-primary:hover {
   background-color: #40676E;
   border-style: solid;
   border-radius: 5px;
@@ -172,6 +208,13 @@ a:hover {
   border-radius: 5px;
   border-color: #40676E;
   border-width: 1px;
+  float: left;
+  margin-top: 3%;
+  
+}
+.loginForm {
+  width: 400px;
+  
 }
 
 /* quiz card area */
@@ -225,3 +268,39 @@ a:hover {
   margin-top: 20%;
   color: #40676E;
 }
+
+/* registration page */
+.registerTitle {
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Merriweather', serif !important;
+  font-size: 60px;
+  color: #40676E;
+}
+
+.regComplete {
+  font-family: 'Merriweather', serif !important;
+  font-size: 20px;
+  color: #40676E;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.regHomebtn {
+  margin-top: 10px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Merriweather', serif !important;
+  font-size: 16px !important;
+  color: #40676E;
+  border-style: solid !important;
+  border-radius: 5px;
+  border-color: #40676E;
+  border-width: 1px;
+}
+
+.regHomebtn:hover {
+  background-color: #40676E;
+  border-color: #BFCAE0;
+  color: #BFCAE0;
+} 
